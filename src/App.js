@@ -38,6 +38,7 @@ function Board({ xIsNext, squares, onPlay }) {
       const squareIndex = i * 3 + j;
       squaresInRow.push(
         <Square
+          key={j}
           value={squares[squareIndex]}
           onSquareClick={() =>
             handleClick({ squareIndex, rowIndex: i, colIndex: j })
@@ -48,7 +49,7 @@ function Board({ xIsNext, squares, onPlay }) {
         />
       );
     }
-    rows.push(<div className="board-row">{squaresInRow}</div>);
+    rows.push(<div key={i} className="board-row">{squaresInRow}</div>);
   }
 
   return (
